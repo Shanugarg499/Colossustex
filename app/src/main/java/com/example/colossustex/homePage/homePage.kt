@@ -4,6 +4,7 @@ package com.example.colossustex.homePage
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.*
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,8 +23,6 @@ class homePage : Fragment() {
 
 
 
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val lay = inflater.inflate(R.layout.home_page_fragment, container, false)
@@ -37,14 +36,14 @@ class homePage : Fragment() {
         adapter = ItemAdapter(options)
         recyclerView.adapter = adapter
 
-
-
-
+        val toolbar = lay.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        toolbar.inflateMenu(R.menu.main_menu)
 
 
 
         return lay
     }
+
 
 
 
