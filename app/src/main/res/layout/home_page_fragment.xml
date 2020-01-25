@@ -15,9 +15,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:title="Coloussustex"
-            app:titleTextColor="#ffffff"/>
+            app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:title="Coloussustex" />
 
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -6,8 +6,7 @@
     <item
         android:id="@+id/notification_Settings"
         android:icon="@drawable/ic_menu_icon"
-        android:title="Notification Settings"
-        />
+        android:title="Notification Settings" />
     <item
         android:id="@+id/edit_profile"
         android:title="Edit Profile" />
