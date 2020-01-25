@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homePage"
-        android:name="com.example.colossustex.homePage.homePage"
+        android:name="com.example.colossustex.homePage.HomePage"
         android:label="home_page_fragment"
         tools:layout="@layout/home_page_fragment" />
 </navigation>
