@@ -52,7 +52,7 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) : FirebaseRecyclerAdap
 
 
 
-    class ItemViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    class ItemViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
 
         val image: ImageView = itemView.findViewById(R.id.imageView_image)
         val heading: TextView = itemView.findViewById(R.id.textView_heading)
@@ -65,7 +65,7 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) : FirebaseRecyclerAdap
 
                 Log.i("Adapter","visible")
                 sliderLayout .visibility = View.VISIBLE
-                sliderLayout.setIndicatorAnimation(IndicatorAnimations.SWAP); //set indicator animation by using 	 				SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+                sliderLayout.setIndicatorAnimation(IndicatorAnimations.SWAP) //set indicator animation by using 	 				SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
                 sliderLayout.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
                 sliderLayout.scrollTimeInSec = 2; //set scroll delay in seconds :
 
