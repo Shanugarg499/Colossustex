@@ -55,11 +55,7 @@ class HomePage : Fragment() {
             when (it.itemId) {
                 R.id.notification_Settings -> notificationSetting()
                 R.id.edit_profile -> modifyProfile()
-                R.id.change_password -> Toast.makeText(
-                    context,
-                    "Change Password",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.change_password -> changePassword()
                 R.id.spinning_mill -> Toast.makeText(
                     context,
                     "Spinning mill?",
@@ -272,6 +268,67 @@ class HomePage : Fragment() {
         mDialog1.show()
     }          //code for modify Profile option in menu
 
+
+    private fun changePassword() {
+        mDialog1.setContentView(R.layout.home_page_change_password)
+        val editTextCurrentPassword =
+            mDialog1.findViewById<TextInputLayout>(R.id.editText_current_password)
+        val editTextNewPassword = mDialog1.findViewById<TextInputLayout>(R.id.editText_new_password)
+        val editTextConfirmPassword =
+            mDialog1.findViewById<TextInputLayout>(R.id.editText_confirm_password)
+        val buttonChangePassword = mDialog1.findViewById<Button>(R.id.button_change_password)
+        val buttonDismiss = mDialog1.findViewById<TextView>(R.id.closeButtonChangePassword)
+
+        buttonDismiss.setOnClickListener {
+            mDialog1.dismiss()
+        }
+
+        var count = 0
+        buttonChangePassword.setOnClickListener {
+
+            if (editTextCurrentPassword.editText?.text.toString().trim() == "") {
+                editTextCurrentPassword.error = "Field can't be empty"
+            } else {
+                editTextCurrentPassword.error = null
+                count++
+            }
+            if (editTextNewPassword.editText?.text.toString().trim() == "") {
+                editTextNewPassword.error = "Field can't be empty"
+            } else {
+                editTextNewPassword.error = null
+                count++
+            }
+            if (editTextConfirmPassword.editText?.text.toString().trim() == "") {
+                editTextConfirmPassword.error = "Field can't be empty"
+            } else {
+                editTextConfirmPassword.error = null
+                count++
+            }
+
+            if (count == 3) {
+
+                if (editTextNewPassword.editText?.text.toString().trim() ==
+                    editTextConfirmPassword.editText?.text.toString().trim()
+                ) {
+                    mDialog1.dismiss()
+                    Toast.makeText(context, "Password successfully saved", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(
+                        context,
+                        "New password do not match with confirm password!! Please try again",
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                }
+
+            } else {
+                count = 0
+            }
+
+        }
+        mDialog1.show()
+    }
 
     override fun onStart() {
         super.onStart()
