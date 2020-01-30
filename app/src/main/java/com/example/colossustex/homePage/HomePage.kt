@@ -79,12 +79,11 @@ class HomePage : Fragment() {
                 R.id.share_app -> Toast.makeText(context, "Share App", Toast.LENGTH_SHORT).show()
             }
             true
-        }
-
+        }        //menu items on click listeners
 
 
         return lay
-    }
+    }                           //main code
 
 
     private fun notificationSetting() {                     //Add on click handlers to all switches
@@ -213,11 +212,11 @@ class HomePage : Fragment() {
                     mDialog2.findViewById<TextInputLayout>(R.id.editText_company_name)
                 val editTextGSTNumber =
                     mDialog2.findViewById<TextInputLayout>(R.id.editText_GST_number)
-                val editTextCompanyAdderss =
+                val editTextCompanyAddress =
                     mDialog2.findViewById<TextInputLayout>(R.id.editText_company_address)
                 val editTextCompanyState =
                     mDialog2.findViewById<TextInputLayout>(R.id.editText_company_state)
-                val editTextPincode = mDialog2.findViewById<TextInputLayout>(R.id.editText_pin_code)
+                val editTextPinCode = mDialog2.findViewById<TextInputLayout>(R.id.editText_pin_code)
                 val buttonModify = mDialog2.findViewById<Button>(R.id.button_modify)
                 var count1 = 0
 
@@ -230,10 +229,10 @@ class HomePage : Fragment() {
                         count1++
                     }
 
-                    if (editTextCompanyAdderss.editText?.text.toString().trim() == "") {
-                        editTextCompanyAdderss.error = "Field can't be empty"
+                    if (editTextCompanyAddress.editText?.text.toString().trim() == "") {
+                        editTextCompanyAddress.error = "Field can't be empty"
                     } else {
-                        editTextCompanyAdderss.error = null
+                        editTextCompanyAddress.error = null
                         count1++
                     }
 
@@ -244,10 +243,10 @@ class HomePage : Fragment() {
                         count1++
                     }
 
-                    if (editTextPincode.editText?.text.toString().trim() == "") {
-                        editTextPincode.error = "Field can't be empty"
+                    if (editTextPinCode.editText?.text.toString().trim() == "") {
+                        editTextPinCode.error = "Field can't be empty"
                     } else {
-                        editTextPincode.error = null
+                        editTextPinCode.error = null
                         count1++
                     }
 

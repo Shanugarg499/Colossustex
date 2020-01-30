@@ -27,6 +27,7 @@
             android:id="@+id/closeButtonNotificationSetting"
             android:layout_width="30dp"
             android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
             android:drawableStart="@drawable/ic_close" />
     </LinearLayout>
 
