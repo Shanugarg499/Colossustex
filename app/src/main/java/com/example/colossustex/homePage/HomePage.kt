@@ -2,14 +2,13 @@ package com.example.colossustex.homePage
 
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
-import android.widget.Switch
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -75,7 +74,6 @@ class HomePage : Fragment() {
 
         return lay
     }                           //main code
-
 
 
     private fun notificationSetting() {                     //Add on click handlers to all switches
@@ -360,7 +358,7 @@ class HomePage : Fragment() {
             mDialog1.dismiss()
         }
         registerHere.setOnClickListener {
-            Toast.makeText(context,"Would open a web site link",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Would open a web site link", Toast.LENGTH_SHORT).show()
             mDialog1.dismiss()
         }
         mDialog1.show()
@@ -369,21 +367,31 @@ class HomePage : Fragment() {
     private fun support() {
         mDialog1.setContentView(R.layout.home_page_support)
         val buttonClose = mDialog1.findViewById<TextView>(R.id.closeButtonSupport)
-        val contactPhone = mDialog1.findViewById<TextView>(R.id.textView_phone_no)
-        val contactEmail = mDialog1.findViewById<TextView>(R.id.textView_email)
+        val phone = mDialog1.findViewById<TextView>(R.id.textView_phone_no_support)
+        val email = mDialog1.findViewById<TextView>(R.id.textView_email_support)
         buttonClose.setOnClickListener {
             mDialog1.dismiss()
         }
-
+        phone.setOnClickListener {
+            var intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:9023428923")
+            startActivity(intent)
+        }
         mDialog1.show()
     }                //code for support option in main menu
 
     private fun advertiseWithUs() {
         mDialog1.setContentView(R.layout.home_page_advertise_with_us)
         val close = mDialog1.findViewById<TextView>(R.id.closeButtonAdvertiseWithUs)
-
+        val phone = mDialog1.findViewById<TextView>(R.id.textView_phone_no_advertise)
+        val email = mDialog1.findViewById<TextView>(R.id.textView_email_advertise)
         close.setOnClickListener {
             mDialog1.dismiss()
+        }
+        phone.setOnClickListener {
+            var intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:9023428923")
+            startActivity(intent)
         }
         mDialog1.show()
     }      //code for advertise with us option in main menu

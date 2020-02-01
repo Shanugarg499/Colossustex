@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayout_call_support"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -65,10 +65,12 @@
 
 
             <TextView
-                android:id="@+id/textView_phone_no"
+                android:id="@+id/textView_phone_no_support"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_textview"
+                android:background="@drawable/custom_text_view"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_horizontal|center_vertical"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
@@ -80,13 +82,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout_mail_support"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_call_support">
 
             <ImageView
                 android:layout_width="30dp"
@@ -96,10 +99,12 @@
 
 
             <TextView
-                android:id="@+id/textView_email"
+                android:id="@+id/textView_email_support"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/custom_textview"
+                android:background="@drawable/custom_text_view"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_horizontal|center_vertical"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
