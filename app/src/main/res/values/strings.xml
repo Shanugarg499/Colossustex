@@ -3,4 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spinningMillDescription">
+        If you are a spinning mill, you can display you products on <b>Coloussustex</b> app for free to generate sale and expand you reach to various markets.
+    </string>
 </resources>

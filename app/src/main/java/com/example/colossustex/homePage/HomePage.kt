@@ -57,11 +57,7 @@ class HomePage : Fragment() {
                 R.id.notification_Settings -> notificationSetting()
                 R.id.edit_profile -> modifyProfile()
                 R.id.change_password -> changePassword()
-                R.id.spinning_mill -> Toast.makeText(
-                    context,
-                    "Spinning mill?",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.spinning_mill -> spinningMill()
                 R.id.support -> Toast.makeText(context, "Support", Toast.LENGTH_SHORT).show()
                 R.id.advertise_with_us -> Toast.makeText(
                     context,
@@ -81,7 +77,6 @@ class HomePage : Fragment() {
 
         return lay
     }                           //main code
-
 
     private fun notificationSetting() {                     //Add on click handlers to all switches
         mDialog1.setContentView(R.layout.home_page_notification_setting)
@@ -355,7 +350,21 @@ class HomePage : Fragment() {
 
         }
         mDialog1.show()
-    }         //code for change password option in min menu
+    }         //code for change password option in main menu
+
+    private fun spinningMill() {
+        mDialog1.setContentView(R.layout.home_page_spinning_mill)
+        val closeButton = mDialog1.findViewById<TextView>(R.id.closeButtonSpinningMill)
+        val registerHere = mDialog1.findViewById<Button>(R.id.button_register_here)
+        closeButton.setOnClickListener {
+            mDialog1.dismiss()
+        }
+        registerHere.setOnClickListener {
+            Toast.makeText(context,"Would open a web site link",Toast.LENGTH_SHORT).show()
+            mDialog1.dismiss()
+        }
+        mDialog1.show()
+    }           //code for spinning mill option in main menu
 
     override fun onStart() {
         super.onStart()
