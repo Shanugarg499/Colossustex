@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.FirebaseDatabase
 import com.example.colossustex.R
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.database.*
 
 
 class HomePage : Fragment() {
@@ -24,6 +24,7 @@ class HomePage : Fragment() {
     private lateinit var adapter: ItemAdapter
     private lateinit var mDialog1: Dialog
     private lateinit var mDialog2: Dialog
+    private lateinit var mDb: DatabaseReference
 
     private lateinit var viewModel: HomePageViewModel
 
@@ -40,6 +41,7 @@ class HomePage : Fragment() {
         mDialog1 = Dialog(context!!)             //Used for showing Dialog
         mDialog2 = Dialog(context!!)             //Used for showing Dialog
 
+        mDb = FirebaseDatabase.getInstance().reference
 
         recyclerView = lay.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
@@ -149,6 +151,31 @@ class HomePage : Fragment() {
         val editTextEmail = mDialog1.findViewById<TextInputLayout>(R.id.editText_Email)
         val editTextCity = mDialog1.findViewById<TextInputLayout>(R.id.editText_city)
         val buttonNext = mDialog1.findViewById<Button>(R.id.button_next)
+
+        editTextCountry.editText?.isEnabled = false
+        editTextMobile.editText?.isEnabled = false
+
+        mDb.child("user").addValueEventListener(
+            object : ValueEventListener{
+                override fun onDataChange(data: DataSnapshot) {
+                    val country = data.child("country").value.toString()
+                    val mobile = data.child("mobile").value.toString()
+                    val name = data.child("name").value.toString()
+                    val email = data.child("email").value.toString()
+                    val city = data.child("city").value.toString()
+                    editTextCountry.editText?.setText(country)
+                    editTextMobile.editText?.setText(mobile)
+                    editTextName.editText?.setText(name)
+                    editTextEmail.editText?.setText(email)
+                    editTextCity.editText?.setText(city)
+
+                }
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+            }
+        )
+
 
         //code for next button click:-
         buttonNext.setOnClickListener {
