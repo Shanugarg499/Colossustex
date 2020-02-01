@@ -29,7 +29,6 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) : FirebaseRecyclerAdap
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int, model: Item) {
-        var context = holder.constraintLayout.context
         holder.description.text = model.description
         holder.heading.text = model.heading
         Picasso.get().load(model.image).into(holder.image)

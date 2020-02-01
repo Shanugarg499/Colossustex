@@ -2,6 +2,7 @@ package com.example.colossustex.homePage
 
 
 import android.app.Dialog
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.*
@@ -16,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.example.colossustex.R
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.*
+import org.w3c.dom.Text
 
 
 class HomePage : Fragment() {
@@ -58,7 +60,7 @@ class HomePage : Fragment() {
                 R.id.edit_profile -> modifyProfile()
                 R.id.change_password -> changePassword()
                 R.id.spinning_mill -> spinningMill()
-                R.id.support -> Toast.makeText(context, "Support", Toast.LENGTH_SHORT).show()
+                R.id.support -> support()
                 R.id.advertise_with_us -> Toast.makeText(
                     context,
                     "Advertise With Us",
@@ -77,6 +79,8 @@ class HomePage : Fragment() {
 
         return lay
     }                           //main code
+
+
 
     private fun notificationSetting() {                     //Add on click handlers to all switches
         mDialog1.setContentView(R.layout.home_page_notification_setting)
@@ -365,6 +369,20 @@ class HomePage : Fragment() {
         }
         mDialog1.show()
     }           //code for spinning mill option in main menu
+
+    private fun support() {
+        mDialog1.setContentView(R.layout.home_page_support)
+        val buttonClose = mDialog1.findViewById<TextView>(R.id.closeButtonSupport)
+        val contactPhone = mDialog1.findViewById<TextView>(R.id.textView_phone_no)
+        val contactEmail = mDialog1.findViewById<TextView>(R.id.textView_email)
+        buttonClose.setOnClickListener {
+            mDialog1.dismiss()
+        }
+
+
+
+        mDialog1.show()
+    }
 
     override fun onStart() {
         super.onStart()
