@@ -328,17 +328,17 @@ class HomePage : Fragment() {
 
         }
         mDialog1.show()
-    }
+    }         //code for change password option in min menu
 
     override fun onStart() {
         super.onStart()
         adapter.startListening()
-    }
+    }                //start adapter listening for recyclerView
 
     override fun onStop() {
         super.onStop()
         adapter.stopListening()
-    }
+    }                 //stop adapter listening for recyclerView
 
 
 }
