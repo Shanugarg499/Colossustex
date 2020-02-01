@@ -61,11 +61,7 @@ class HomePage : Fragment() {
                 R.id.change_password -> changePassword()
                 R.id.spinning_mill -> spinningMill()
                 R.id.support -> support()
-                R.id.advertise_with_us -> Toast.makeText(
-                    context,
-                    "Advertise With Us",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.advertise_with_us -> advertiseWithUs()
                 R.id.rate_this_app -> Toast.makeText(
                     context,
                     "Rate This App",
@@ -379,10 +375,18 @@ class HomePage : Fragment() {
             mDialog1.dismiss()
         }
 
-
-
         mDialog1.show()
-    }
+    }                //code for support option in main menu
+
+    private fun advertiseWithUs() {
+        mDialog1.setContentView(R.layout.home_page_advertise_with_us)
+        val close = mDialog1.findViewById<TextView>(R.id.closeButtonAdvertiseWithUs)
+
+        close.setOnClickListener {
+            mDialog1.dismiss()
+        }
+        mDialog1.show()
+    }      //code for advertise with us option in main menu
 
     override fun onStart() {
         super.onStart()
