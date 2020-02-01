@@ -28,7 +28,6 @@ class HomePage : Fragment() {
 
     private lateinit var viewModel: HomePageViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -135,7 +134,6 @@ class HomePage : Fragment() {
         mDialog1.show()
     }    // code for notification Settings option in menu
 
-
     private fun modifyProfile() {//store values in temp variable on click and validate each value and navigate to next page
         mDialog1.setContentView(R.layout.home_page_modify_profile_1)
         var tempCountry: String
@@ -152,11 +150,11 @@ class HomePage : Fragment() {
         val editTextCity = mDialog1.findViewById<TextInputLayout>(R.id.editText_city)
         val buttonNext = mDialog1.findViewById<Button>(R.id.button_next)
 
-        editTextCountry.editText?.isEnabled = false
-        editTextMobile.editText?.isEnabled = false
+        editTextCountry.editText!!.keyListener = null
+        editTextMobile.editText!!.keyListener = null
 
         mDb.child("user").addValueEventListener(
-            object : ValueEventListener{
+            object : ValueEventListener {
                 override fun onDataChange(data: DataSnapshot) {
                     val country = data.child("country").value.toString()
                     val mobile = data.child("mobile").value.toString()
@@ -170,6 +168,7 @@ class HomePage : Fragment() {
                     editTextCity.editText?.setText(city)
 
                 }
+
                 override fun onCancelled(p0: DatabaseError) {
                 }
 
@@ -220,7 +219,9 @@ class HomePage : Fragment() {
             if (count == 5) {    //all necessary fields filled
                 mDialog1.hide()
                 mDialog2.setContentView(R.layout.home_page_modify_profile_2)
+
                 mDialog2.setOnKeyListener { dialogInterface, keyCode, keyEvent ->
+                    //for back pressed in dialog2
                     //for back Key
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
                         mDialog1.show()
@@ -294,7 +295,6 @@ class HomePage : Fragment() {
 
         mDialog1.show()
     }          //code for modify Profile option in menu
-
 
     private fun changePassword() {
         mDialog1.setContentView(R.layout.home_page_change_password)
