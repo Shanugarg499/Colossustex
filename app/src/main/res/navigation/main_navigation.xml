@@ -9,5 +9,14 @@
         android:id="@+id/homePage"
         android:name="com.example.colossustex.homePage.HomePage"
         android:label="home_page_fragment"
-        tools:layout="@layout/home_page_fragment" />
+        tools:layout="@layout/home_page_fragment" >
+        <action
+            android:id="@+id/action_homePage_to_spinningMillOfIndia"
+            app:destination="@id/spinningMillOfIndia" />
+    </fragment>
+    <fragment
+        android:id="@+id/spinningMillOfIndia"
+        android:name="com.example.colossustex.SpinningMillOfIndia.SpinningMillOfIndia"
+        android:label="fragment_spinning_mill_of_india"
+        tools:layout="@layout/fragment_spinning_mill_of_india" />
 </navigation>
