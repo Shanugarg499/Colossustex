@@ -35,7 +35,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/post_yarn_requirement_background"
                 android:padding="4dp"
-                android:translationZ="10dp"
+                android:elevation="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/constraint_layout_direct_mill_agent_and_traders"
                 app:layout_constraintStart_toStartOf="@+id/constraint_layout_direct_mill_agent_and_traders"
                 app:layout_constraintTop_toTopOf="parent">
@@ -93,7 +93,7 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/post_yarn_requirement_background"
                 android:padding="4dp"
-                android:translationZ="10dp"
+                android:elevation="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.494"
