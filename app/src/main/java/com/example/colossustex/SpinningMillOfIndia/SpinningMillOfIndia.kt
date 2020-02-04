@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 
 import com.example.colossustex.R
 
@@ -18,7 +19,9 @@ class SpinningMillOfIndia : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
+        var lay =  inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
+        val toolbar = lay.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_spinning_mills_in_india)
+        return lay
     }
 
 }
