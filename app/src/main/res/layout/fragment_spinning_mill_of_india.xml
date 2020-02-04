@@ -33,6 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/cardView_post_yarn_requirement"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,18 +44,19 @@
                     android:id="@+id/textView_cotton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="3dp"
                     android:background="@color/colorPrimary"
                     android:paddingStart="3dp"
                     android:paddingEnd="3dp"
                     android:text="Cotton"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textView_Synthetic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="3dp"
                     android:background="@color/colorPrimary"
                     android:paddingStart="3dp"
                     android:paddingEnd="3dp"
@@ -65,7 +67,7 @@
                     android:id="@+id/textView_viscose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="3dp"
                     android:background="@color/colorPrimary"
                     android:paddingStart="3dp"
                     android:paddingEnd="3dp"
@@ -76,7 +78,7 @@
                     android:id="@+id/textView_texturised"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="3dp"
                     android:background="@color/colorPrimary"
                     android:paddingStart="3dp"
                     android:paddingEnd="3dp"
@@ -87,7 +89,7 @@
                     android:id="@+id/textView_fancy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="3dp"
                     android:background="@color/colorPrimary"
                     android:paddingStart="3dp"
                     android:paddingEnd="3dp"
@@ -101,6 +103,7 @@
                 android:id="@+id/cardView_post_yarn_requirement"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 app:cardElevation="5dp"
                 app:layout_constraintEnd_toEndOf="@+id/cardView_direct_mill_agent_and_traders"
                 app:layout_constraintStart_toStartOf="@+id/cardView_direct_mill_agent_and_traders"
@@ -238,6 +241,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recylerView_spinning_mills_of_india"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
