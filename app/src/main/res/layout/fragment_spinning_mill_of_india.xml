@@ -26,13 +26,15 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/upButtonSpinningMillsOfIndia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_arrow_back"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"/>
 
                 <TextView
                     android:id="@+id/textView11"
@@ -44,7 +46,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toEndOf="@+id/upButtonSpinningMillsOfIndia"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView

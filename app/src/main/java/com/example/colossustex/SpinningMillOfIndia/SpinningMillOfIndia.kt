@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.colossustex.R
@@ -35,11 +37,17 @@ class SpinningMillOfIndia : Fragment() {
         val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
         val directMillAgentsandTraders =
             lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
+        val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
 
-        toolbar.inflateMenu(R.menu.main_menu)
+        toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
+
+        upButton.setOnClickListener {
+            it.findNavController().navigateUp()
+        }
 
 
         return lay
     }
+
 
 }
