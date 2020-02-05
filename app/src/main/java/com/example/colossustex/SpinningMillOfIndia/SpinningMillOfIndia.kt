@@ -36,6 +36,7 @@ class SpinningMillOfIndia : Fragment() {
         val directMillAgentsandTraders =
             lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
 
+        toolbar.inflateMenu(R.menu.main_menu)
 
 
         return lay
