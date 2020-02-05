@@ -1,6 +1,7 @@
 package com.example.colossustex.SpinningMillOfIndia
 
 import android.content.Context
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -38,10 +39,14 @@ class SpinningMillOfIndia : Fragment() {
         val directMillAgentsandTraders =
             lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
         val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
+        val homeButton = lay.findViewById<ImageView>(R.id.imageView_home_page)
 
         toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
 
         upButton.setOnClickListener {
+            it.findNavController().navigateUp()
+        }
+        homeButton.setOnClickListener {
             it.findNavController().navigateUp()
         }
 

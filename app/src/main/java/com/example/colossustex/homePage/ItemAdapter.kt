@@ -35,6 +35,7 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
         holder.description.text = model.description
         holder.heading.text = model.heading
         Picasso.get().load(model.image).into(holder.image)
+
         holder.constraintLayout.setOnClickListener {
             when (position) {
                 0 -> holder.constraintLayout.findNavController().navigate(HomePageDirections.actionHomePageToSpinningMillOfIndia())
@@ -63,7 +64,6 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
 
         init {
 
-
             Log.i("Adapter", "visible")
             sliderLayout.visibility = View.VISIBLE
             sliderLayout.setIndicatorAnimation(IndicatorAnimations.SWAP) //set indicator animation by using 	 				SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
@@ -71,6 +71,7 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
             sliderLayout.scrollTimeInSec = 2; //set scroll delay in seconds :
 
             for (i in 0..3) {
+
 
                 val sliderView = DefaultSliderView(constraintLayout.context)
 
@@ -99,6 +100,9 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
             }
 
         }
+
+
+
 
     }
 
