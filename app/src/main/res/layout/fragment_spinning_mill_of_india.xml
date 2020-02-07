@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homePage.HomePage">
+    tools:context=".homePage.HomePage"
+    android:background="#BFC0C0C0">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -300,6 +301,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerView_spinning_mills_of_india"

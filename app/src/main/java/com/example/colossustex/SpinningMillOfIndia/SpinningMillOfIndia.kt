@@ -13,14 +13,19 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.colossustex.R
+import com.google.firebase.database.*
 import org.w3c.dom.Text
 
 class SpinningMillOfIndia : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var mDb: DatabaseReference
+    private lateinit var posts: ArrayList<post>
+    private lateinit var adapter: PostAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +46,7 @@ class SpinningMillOfIndia : Fragment() {
         val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
         val homeButton = lay.findViewById<ImageView>(R.id.imageView_home_page)
 
+
         toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
 
         upButton.setOnClickListener {
@@ -49,6 +55,30 @@ class SpinningMillOfIndia : Fragment() {
         homeButton.setOnClickListener {
             it.findNavController().navigateUp()
         }
+
+
+
+        recyclerView = lay.findViewById(R.id.recylerView_spinning_mills_of_india)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        posts = ArrayList()
+
+        mDb = FirebaseDatabase.getInstance().reference.child("postsSpinningMillsOfIndia")
+
+        mDb.addValueEventListener(
+            object : ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {}
+
+                override fun onDataChange(data: DataSnapshot) {
+                    for(dataSnapshot in data.children){
+                        val p = dataSnapshot.getValue(post::class.java)
+                        posts.add(p!!)
+                    }
+                    adapter = PostAdapter(context!!,posts)
+                    recyclerView.adapter = adapter
+                }
+            }
+        )
 
 
         return lay

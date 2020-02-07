@@ -102,8 +102,6 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
         }
 
 
-
-
     }
 
 

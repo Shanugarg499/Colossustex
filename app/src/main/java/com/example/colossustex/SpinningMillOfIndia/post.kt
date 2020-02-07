@@ -6,9 +6,9 @@ data class post (
     var oldPrice:String? = "",
     var newPrice:String? = "",
     var newProductPrice:String? = "",
-    var produce:String? = "",
-    var data:String? = "",
+    var product:String? = "",
+    var date:String? = "",
     var time:String? = "",
-    var type: String? = ""
-
+    var type: String? = "",
+    var phone: String = ""
 )
