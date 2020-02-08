@@ -115,7 +115,7 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:background="#25000000"
-                android:src="@drawable/ic_mail" />
+                android:src="@drawable/ic_email" />
 
 
             <TextView

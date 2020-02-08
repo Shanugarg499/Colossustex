@@ -1,8 +1,6 @@
 package com.example.colossustex.SpinningMillOfIndia
 
 import android.content.Context
-import android.text.Layout
-import android.text.TextDirectionHeuristic
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
-import org.w3c.dom.Text
 
 class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
 
@@ -39,7 +36,7 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, pos: Int) {
 
-        holder.date.text = posts[pos].date+","
+        holder.date.text = posts[pos].date + ","
         holder.time.text = posts[pos].time
         holder.call.text = posts[pos].phone
 
@@ -53,7 +50,7 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
             }
             posts[pos].type == "decrease" -> {
                 holder.description.text =
-                    posts[pos].name.toString() + " has decreased price of " + posts[pos].product + " by Rs. " + posts[pos].oldPrice + " to Rs. " + posts[pos].newPrice + " per kg(Ex-Mill)"
+                    posts[pos].name.toString() + " has decreased price of " + posts[pos].product + " by Rs. " + posts[pos].priceReduced + " to Rs. " + posts[pos].newPrice + " per kg(Ex-Mill)"
                 holder.image.setImageResource(R.drawable.ic_arrow_downward)
             }
             else -> holder.description.text =

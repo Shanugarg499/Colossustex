@@ -1,25 +1,23 @@
 package com.example.colossustex.homePage
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.squareup.picasso.Picasso
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.smarteist.autoimageslider.DefaultSliderView
 import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderLayout
-import kotlinx.coroutines.internal.artificialFrame
+import com.squareup.picasso.Picasso
 
 
 class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :

@@ -67,9 +67,11 @@ class SpinningMillOfIndia : Fragment() {
 
         mDb.addValueEventListener(
             object : ValueEventListener{
+
                 override fun onCancelled(p0: DatabaseError) {}
 
                 override fun onDataChange(data: DataSnapshot) {
+                    posts.clear()
                     for(dataSnapshot in data.children){
                         val p = dataSnapshot.getValue(post::class.java)
                         posts.add(p!!)
