@@ -378,6 +378,14 @@ class HomePage : Fragment() {
             intent.data = Uri.parse("tel:9023428923")
             startActivity(intent)
         }
+        email.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.putExtra(Intent.EXTRA_EMAIL,"support@coloussustex.com")
+            intent.putExtra(Intent.EXTRA_SUBJECT,"")
+            intent.putExtra(Intent.EXTRA_TEXT,"")
+            intent.type = "message/rfc822"
+            startActivity(Intent.createChooser(intent,"Chose Email Clint:"))
+        }
         mDialog1.show()
     }                //code for support option in main menu
 
@@ -390,9 +398,17 @@ class HomePage : Fragment() {
             mDialog1.dismiss()
         }
         phone.setOnClickListener {
-            var intent = Intent(Intent.ACTION_DIAL)
+            val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:9023428923")
             startActivity(intent)
+        }
+        email.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.putExtra(Intent.EXTRA_EMAIL,"support@coloussustex.com")
+            intent.putExtra(Intent.EXTRA_SUBJECT,"")
+            intent.putExtra(Intent.EXTRA_TEXT,"")
+            intent.type = "message/rfc822"
+            startActivity(Intent.createChooser(intent,"Chose Email Clint:"))
         }
         mDialog1.show()
     }      //code for advertise with us option in main menu
