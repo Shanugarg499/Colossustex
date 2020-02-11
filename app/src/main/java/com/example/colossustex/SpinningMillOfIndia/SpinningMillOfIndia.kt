@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
+import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.database.*
 
 class SpinningMillOfIndia : Fragment() {
@@ -39,6 +40,8 @@ class SpinningMillOfIndia : Fragment() {
             lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
         val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
         val homeButton = lay.findViewById<ImageView>(R.id.imageView_home_page)
+
+
 
 
         toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
