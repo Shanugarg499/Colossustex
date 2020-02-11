@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.example.colossustex.R
+import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.database.*
 
 class SpinningMillOfIndia : Fragment() {
@@ -43,8 +44,8 @@ class SpinningMillOfIndia : Fragment() {
             lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
         val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
         val homeButton = lay.findViewById<ImageView>(R.id.imageView_home_page)
+  //      val app_bar = lay.findViewById<AppBarLayout>(R.id.app_bar)
 
-        manager = LinearLayoutManager(context)
 
 
 
@@ -61,6 +62,7 @@ class SpinningMillOfIndia : Fragment() {
 
         recyclerView = lay.findViewById(R.id.recylerView_spinning_mills_of_india)
         recyclerView.layoutManager = manager
+
         recyclerView.addOnScrollListener(
             object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
