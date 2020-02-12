@@ -297,7 +297,6 @@
                 android:layout_width="375dp"
                 android:layout_height="30dp"
                 android:layout_margin="5dp"
-                android:layout_marginStart="5dp"
                 android:background="@android:color/white"
                 android:drawableStart="@drawable/ic_search_gray"
                 android:gravity="start|center_vertical"

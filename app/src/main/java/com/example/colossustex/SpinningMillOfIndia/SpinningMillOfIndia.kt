@@ -14,10 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.example.colossustex.R
-import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.database.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class SpinningMillOfIndia : Fragment() {
 
@@ -29,7 +26,6 @@ class SpinningMillOfIndia : Fragment() {
     private var done = false
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,17 +34,18 @@ class SpinningMillOfIndia : Fragment() {
         var lay = inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
         val toolbar =
             lay.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_spinning_mills_in_india)
-        val upButton  = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
-                     val cotton = lay.findViewById<TextView>(R.id.textView_cotton)
-                val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
-                val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
-                val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
-                val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
-                val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
-                val directMillAgentsandTraders =
-                    lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
+        val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
+        val cotton = lay.findViewById<TextView>(R.id.textView_cotton)
+        val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
+        val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
+        val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
+        val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
+        val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
+        val directMillAgentsandTraders =
+            lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
         val filterByName = lay.findViewById<EditText>(R.id.editText_search_spinning_mills_in_india)
-        val clearFilter = lay.findViewById<ImageButton>(R.id.imageButton_clear_search_spinning_mills_of_india)
+        val clearFilter =
+            lay.findViewById<ImageButton>(R.id.imageButton_clear_search_spinning_mills_of_india)
 
         upButton.setOnClickListener {
             it.findNavController().navigateUp()
@@ -59,8 +56,8 @@ class SpinningMillOfIndia : Fragment() {
 
         toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
         toolbar.setOnMenuItemClickListener {
-            when(it.itemId){
-                R.id.home_page ->{
+            when (it.itemId) {
+                R.id.home_page -> {
                     toolbar.findNavController().navigateUp()
                 }
             }
@@ -81,10 +78,10 @@ class SpinningMillOfIndia : Fragment() {
                     super.onScrollStateChanged(recyclerView, newState)
 
                     if (!done && manager.findFirstVisibleItemPosition() >= 1 && newState == SCROLL_STATE_IDLE) {
-                        Toast.makeText(context, "dommb", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "this would be changed to show a filter option", Toast.LENGTH_SHORT).show()
                         done = true
                     }
-                    if(done &&  manager.findFirstVisibleItemPosition() == 0 && newState == SCROLL_STATE_IDLE){
+                    if (done && manager.findFirstVisibleItemPosition() == 0 && newState == SCROLL_STATE_IDLE) {
                         done = false
                     }
 
@@ -98,32 +95,26 @@ class SpinningMillOfIndia : Fragment() {
 
 
         filterByName.addTextChangedListener(
-            object: TextWatcher{
-                override fun afterTextChanged(p0: Editable?) {
-                    if(filterByName.text.trim().isEmpty()){
-                        mDb.addListenerForSingleValueEvent(valueEventListener)
-                    }else{
-                        val query = mDb
-                            .orderByChild("name")
-                            .startAt("${filterByName.text}")
-                            .endAt("${filterByName.text}\uf8ff")
-                        query.addListenerForSingleValueEvent(valueEventListener)
-                    }
-                }
-
+            object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
+                override fun afterTextChanged(p0: Editable?) {
+                    if (filterByName.text.trim().isEmpty()) {
+                        mDb.addListenerForSingleValueEvent(valueEventListener)    //display all
+                    } else {
+                        val query = mDb
+                            .orderByChild("sname")
+                            .startAt(filterByName.text.toString().toLowerCase())
+                            .endAt("${filterByName.text.toString().toLowerCase()}\uf8ff")
+                        query.addListenerForSingleValueEvent(valueEventListener)  //query selected
+                    }
+                }
             }
         )
-
-
-
-
-
-
-
+        clearFilter.setOnClickListener{
+            filterByName.text.clear()
+        }
 
 
 
@@ -142,7 +133,7 @@ class SpinningMillOfIndia : Fragment() {
                     posts.reverse()
                     adapter.notifyDataSetChanged()
                 }
-            }
+            }       //for first time loading.
         )
 
 

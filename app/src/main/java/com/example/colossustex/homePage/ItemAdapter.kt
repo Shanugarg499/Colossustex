@@ -41,6 +41,10 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
             }
         }
 
+        if(position == 9){
+            holder.view2.visibility = View.INVISIBLE
+        }
+
         if (position == 0) {
             holder.sliderLayout.visibility = View.VISIBLE
         }                //To set the sliderLayout only for the first item
@@ -59,6 +63,7 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
         val description: TextView = itemView.findViewById(R.id.textView_description)
         val constraintLayout: ConstraintLayout = itemView.findViewById(R.id.constraintLayout1)
         val sliderLayout: SliderLayout = itemView.findViewById(R.id.imageSlider)
+        val view2: View = itemView.findViewById(R.id.view2)
 
         init {
 
