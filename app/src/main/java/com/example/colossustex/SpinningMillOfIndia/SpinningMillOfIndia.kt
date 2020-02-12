@@ -1,12 +1,12 @@
 package com.example.colossustex.SpinningMillOfIndia
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.example.colossustex.R
 import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.database.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SpinningMillOfIndia : Fragment() {
 
@@ -25,6 +27,8 @@ class SpinningMillOfIndia : Fragment() {
     private lateinit var adapter: PostAdapter
     private lateinit var manager: LinearLayoutManager
     private var done = false
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +47,8 @@ class SpinningMillOfIndia : Fragment() {
                 val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
                 val directMillAgentsandTraders =
                     lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
+        val filterByName = lay.findViewById<EditText>(R.id.editText_search_spinning_mills_in_india)
+        val clearFilter = lay.findViewById<ImageButton>(R.id.imageButton_clear_search_spinning_mills_of_india)
 
         upButton.setOnClickListener {
             it.findNavController().navigateUp()
@@ -61,10 +67,13 @@ class SpinningMillOfIndia : Fragment() {
             true
         }
 
+        posts = ArrayList()
 
         manager = LinearLayoutManager(context)
         recyclerView = lay.findViewById(R.id.recylerView_spinning_mills_of_india)
         recyclerView.layoutManager = manager
+        adapter = PostAdapter(context!!, posts)
+        recyclerView.adapter = adapter
 
         recyclerView.addOnScrollListener(
             object : RecyclerView.OnScrollListener() {
@@ -84,16 +93,42 @@ class SpinningMillOfIndia : Fragment() {
         )
 
 
-
-
-
-
-
-        posts = ArrayList()
-
         mDb = FirebaseDatabase.getInstance().reference.child("postsSpinningMillsOfIndia")
 
-        mDb.addValueEventListener(
+
+
+        filterByName.addTextChangedListener(
+            object: TextWatcher{
+                override fun afterTextChanged(p0: Editable?) {
+                    if(filterByName.text.trim().isEmpty()){
+                        mDb.addListenerForSingleValueEvent(valueEventListener)
+                    }else{
+                        val query = mDb
+                            .orderByChild("name")
+                            .startAt("${filterByName.text}")
+                            .endAt("${filterByName.text}\uf8ff")
+                        query.addListenerForSingleValueEvent(valueEventListener)
+                    }
+                }
+
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            }
+        )
+
+
+
+
+
+
+
+
+
+
+
+        mDb.addListenerForSingleValueEvent(
             object : ValueEventListener {
 
                 override fun onCancelled(p0: DatabaseError) {}
@@ -105,14 +140,28 @@ class SpinningMillOfIndia : Fragment() {
                         posts.add(p!!)
                     }
                     posts.reverse()
-                    adapter = PostAdapter(context!!, posts)
-                    recyclerView.adapter = adapter
+                    adapter.notifyDataSetChanged()
                 }
             }
         )
 
 
         return lay
+    }
+
+    val valueEventListener = object : ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {}
+
+        override fun onDataChange(data: DataSnapshot) {
+            posts.clear()
+            for (dataSnapshot in data.children) {
+                val p = dataSnapshot.getValue(post::class.java)
+                posts.add(p!!)
+            }
+            posts.reverse()
+            adapter.notifyDataSetChanged()
+        }
+
     }
 
 
