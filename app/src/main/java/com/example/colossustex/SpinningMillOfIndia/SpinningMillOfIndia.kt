@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.example.colossustex.R
+import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.database.*
 
 class SpinningMillOfIndia : Fragment() {
@@ -46,6 +48,8 @@ class SpinningMillOfIndia : Fragment() {
         val filterByName = lay.findViewById<EditText>(R.id.editText_search_spinning_mills_in_india)
         val clearFilter =
             lay.findViewById<ImageButton>(R.id.imageButton_clear_search_spinning_mills_of_india)
+        val appBarLayout = lay.findViewById<AppBarLayout>(R.id.app_bar_spinning_mills_in_india)
+        val searchLayout = lay.findViewById<ConstraintLayout>(R.id.constraintLayout_search)
 
         upButton.setOnClickListener {
             it.findNavController().navigateUp()
@@ -75,17 +79,26 @@ class SpinningMillOfIndia : Fragment() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     super.onScrollStateChanged(recyclerView, newState)
 
-                    if (!done && manager.findFirstVisibleItemPosition() >= 1 && newState == SCROLL_STATE_IDLE) {
-                        Toast.makeText(context, "this would be changed to show a filter option", Toast.LENGTH_SHORT).show()
-                        done = true
-                    }
-                    if (done && manager.findFirstVisibleItemPosition() == 0 && newState == SCROLL_STATE_IDLE) {
-                        done = false
+                    if(manager.findFirstCompletelyVisibleItemPosition()==0 && newState == SCROLL_STATE_IDLE){
+                        searchLayout.visibility = View.GONE
                     }
 
                 }
             }
         )
+
+        appBarLayout.addOnOffsetChangedListener(
+            object : AppBarStateChangedListener() {
+                override fun onStateChanged(appBarLayout: AppBarLayout, state: State) {
+//                    Toast.makeText(context,"${state.name}",Toast.LENGTH_SHORT).show()
+//                    states -  EXPANDED, COLLAPSED, IDLE
+                    if (state == State.COLLAPSED) {
+                        searchLayout.visibility = View.VISIBLE
+                    }
+                }
+            }
+        )
+
 
 
         mDb = FirebaseDatabase.getInstance().reference.child("postsSpinningMillsOfIndia")
@@ -111,7 +124,7 @@ class SpinningMillOfIndia : Fragment() {
             }                    //textWatcher to run different queries at diff situations
         )
 
-        clearFilter.setOnClickListener{
+        clearFilter.setOnClickListener {
             filterByName.text.clear()                         //Clear filter text
         }
 

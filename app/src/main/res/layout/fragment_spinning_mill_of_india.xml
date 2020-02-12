@@ -9,7 +9,7 @@
 
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/app_bar_spinning_mills_in_india"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white">
@@ -285,9 +285,10 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_"
+            android:id="@+id/constraintLayout_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_centerHorizontal="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -328,12 +329,12 @@
             android:id="@+id/recylerView_spinning_mills_of_india"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/constraintLayout_"
+            android:layout_below="@id/constraintLayout_search"
             android:layout_centerHorizontal="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_search" />
 
 
     </RelativeLayout>
