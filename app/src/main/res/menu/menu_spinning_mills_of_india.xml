@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/message"
+        android:id="@+id/home_page"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"
+        android:title="Home Page" />
+    <item
+        android:id="@+id/message_icon"
+        android:icon="@drawable/ic_email"
+        app:showAsAction="always"
         android:title="Messages" />
     <item
+        android:id="@+id/message"
+        android:title="Message" />
+    <item
         android:id="@+id/myYarnRequirement"
-        android:title="My Yarn Requirements"/>
+        android:title="My Yarn Requirements" />
     <item
         android:id="@+id/allRequirements"
-        android:title="All Requirements"/>
+        android:title="All Requirements" />
     <item
         android:id="@+id/myFavouriteYarnProducts"
-        android:title="My Favourite Yarn Products"/>
+        android:title="My Favourite Yarn Products" />
     <item
         android:id="@+id/notification_Settings"
         android:title="Notification Settings" />

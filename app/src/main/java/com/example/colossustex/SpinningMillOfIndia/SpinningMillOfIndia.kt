@@ -30,36 +30,39 @@ class SpinningMillOfIndia : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         var lay = inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
         val toolbar =
             lay.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_spinning_mills_in_india)
-        val cotton = lay.findViewById<TextView>(R.id.textView_cotton)
-        val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
-        val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
-        val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
-        val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
-        val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
-        val directMillAgentsandTraders =
-            lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
-        val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
-        val homeButton = lay.findViewById<ImageView>(R.id.imageView_home_page)
-  //      val app_bar = lay.findViewById<AppBarLayout>(R.id.app_bar)
+        val upButton  = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
+                     val cotton = lay.findViewById<TextView>(R.id.textView_cotton)
+                val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
+                val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
+                val texturised = lay.findViewById<TextView>(R.id.textView_texturised)
+                val fancy = lay.findViewById<TextView>(R.id.textView_fancy)
+                val postYarnRequirement = lay.findViewById<CardView>(R.id.cardView_post_yarn_requirement)
+                val directMillAgentsandTraders =
+                    lay.findViewById<CardView>(R.id.cardView_direct_mill_agent_and_traders)
+
+        upButton.setOnClickListener {
+            it.findNavController().navigateUp()
+        }
 
 
 
 
         toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
-
-        upButton.setOnClickListener {
-            it.findNavController().navigateUp()
+        toolbar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.home_page ->{
+                    toolbar.findNavController().navigateUp()
+                }
+            }
+            true
         }
-        homeButton.setOnClickListener {
-            it.findNavController().navigateUp()
-        }
 
 
-
+        manager = LinearLayoutManager(context)
         recyclerView = lay.findViewById(R.id.recylerView_spinning_mills_of_india)
         recyclerView.layoutManager = manager
 
