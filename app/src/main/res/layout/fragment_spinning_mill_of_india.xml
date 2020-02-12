@@ -278,8 +278,8 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <RelativeLayout
+        android:id="@+id/relativeLayout_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -288,6 +288,7 @@
             android:id="@+id/constraintLayout_"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -298,9 +299,11 @@
                 android:layout_height="30dp"
                 android:layout_margin="5dp"
                 android:background="@android:color/white"
+                android:cursorVisible="false"
                 android:drawableStart="@drawable/ic_search_gray"
                 android:gravity="start|center_vertical"
                 android:hint="Type mill name to filter list below"
+                android:inputType="text"
                 android:textAlignment="inherit"
                 android:textColorHint="#BFC0C0C0"
                 android:textSize="14sp"
@@ -311,8 +314,8 @@
             <ImageButton
                 android:id="@+id/imageButton_clear_search_spinning_mills_of_india"
                 android:layout_width="0dp"
-                android:padding="5dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/background_round_white"
                 android:src="@drawable/ic_close_gray"
                 app:layout_constraintBottom_toBottomOf="@+id/editText_search_spinning_mills_in_india"
@@ -324,15 +327,17 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recylerView_spinning_mills_of_india"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/constraintLayout_"
+            android:layout_centerHorizontal="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout_" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 

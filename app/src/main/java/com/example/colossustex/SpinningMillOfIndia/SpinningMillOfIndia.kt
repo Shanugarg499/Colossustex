@@ -52,8 +52,6 @@ class SpinningMillOfIndia : Fragment() {
         }
 
 
-
-
         toolbar.inflateMenu(R.menu.menu_spinning_mills_of_india)
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -110,16 +108,18 @@ class SpinningMillOfIndia : Fragment() {
                         query.addListenerForSingleValueEvent(valueEventListener)  //query selected
                     }
                 }
-            }
+            }                    //textWatcher to run different queries at diff situations
         )
+
         clearFilter.setOnClickListener{
-            filterByName.text.clear()
+            filterByName.text.clear()                         //Clear filter text
         }
 
 
 
 
-        mDb.addListenerForSingleValueEvent(
+
+        mDb.addValueEventListener(
             object : ValueEventListener {
 
                 override fun onCancelled(p0: DatabaseError) {}
@@ -153,7 +153,7 @@ class SpinningMillOfIndia : Fragment() {
             adapter.notifyDataSetChanged()
         }
 
-    }
+    }   //to notify changes to adapter
 
 
 }
