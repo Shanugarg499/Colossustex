@@ -299,7 +299,7 @@
                 android:layout_height="30dp"
                 android:layout_margin="5dp"
                 android:background="@android:color/white"
-                android:cursorVisible="false"
+                android:cursorVisible="true"
                 android:drawableStart="@drawable/ic_search_gray"
                 android:gravity="start|center_vertical"
                 android:hint="Type mill name to filter list below"
