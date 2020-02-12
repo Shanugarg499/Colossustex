@@ -38,7 +38,7 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
 
         holder.date.text = posts[pos].date + ","
         holder.time.text = posts[pos].time
-        holder.call.text = posts[pos].phone
+        holder.call.text = posts[pos].name.toString().slice(IntRange(0,11))+"..."
 
 
 
