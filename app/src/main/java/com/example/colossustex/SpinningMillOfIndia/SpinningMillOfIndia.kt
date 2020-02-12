@@ -81,6 +81,7 @@ class SpinningMillOfIndia : Fragment() {
 
                     if(manager.findFirstCompletelyVisibleItemPosition()==0 && newState == SCROLL_STATE_IDLE){
                         searchLayout.visibility = View.GONE
+                        filterByName.text.clear()
                     }
 
                 }
