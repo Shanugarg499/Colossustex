@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
 
@@ -63,9 +65,10 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
 
         holder.call.setOnClickListener {
             val dialog = Dialog(context)
-            dialog.setContentView(R.layout.home_page_notification_setting)
+            dialog.setContentView(R.layout.fragment_spinning_mills_in_india_call_dialog)
             dialog.window!!.attributes.windowAnimations = R.style.DialogScale
-            dialog.window!!.attributes.dimAmount = 0.95f
+            dialog.window!!.attributes.dimAmount = 0.9f
+            val call = dialog.findViewById<LinearLayout>(R.id.constraintLayout_call_spinning_mills_in_india)
             dialog.show()
         }
 
