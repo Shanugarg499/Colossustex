@@ -67,7 +67,9 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
             val dialog = Dialog(context)
             dialog.setContentView(R.layout.fragment_spinning_mills_in_india_call_dialog)
             dialog.window!!.attributes.windowAnimations = R.style.DialogScale
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.window!!.attributes.dimAmount = 0.9f
+
             val call = dialog.findViewById<LinearLayout>(R.id.constraintLayout_call_spinning_mills_in_india)
             dialog.show()
         }
