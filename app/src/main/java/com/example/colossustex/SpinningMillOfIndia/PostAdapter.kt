@@ -57,6 +57,10 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
                 posts[pos].name.toString() + " has added a new product " + posts[pos].product + " at " + posts[pos].newProductPrice + " per kg(Ex-Mill)"
         }
 
+        holder.call.setOnClickListener {
+
+        }
+
 
     }
 
