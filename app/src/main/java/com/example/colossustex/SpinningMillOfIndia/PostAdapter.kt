@@ -1,6 +1,10 @@
 package com.example.colossustex.SpinningMillOfIndia
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +62,11 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
         }
 
         holder.call.setOnClickListener {
-
+            val dialog = Dialog(context)
+            dialog.setContentView(R.layout.home_page_notification_setting)
+            dialog.window!!.attributes.windowAnimations = R.style.DialogScale
+            dialog.window!!.attributes.dimAmount = 0.95f
+            dialog.show()
         }
 
 
