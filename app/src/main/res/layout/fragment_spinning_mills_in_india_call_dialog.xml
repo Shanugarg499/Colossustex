@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
+    android:layout_width="380dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical|center_horizontal"
     android:background="@android:color/transparent"
@@ -27,7 +27,7 @@
             android:src="@drawable/ic_call" />
 
         <TextView
-            android:id="@+id/textView_call"
+            android:id="@+id/textView_call_spinning_mills_in_india_dialog"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_gravity="center_vertical"
@@ -58,7 +58,7 @@
             android:src="@drawable/ic_email" />
 
         <TextView
-            android:id="@+id/textView_mail"
+            android:id="@+id/textView_mail_spinning_mills_in_india_dialog"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_gravity="center_vertical"

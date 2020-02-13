@@ -71,6 +71,13 @@ class PostAdapter() : RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
             dialog.window!!.attributes.dimAmount = 0.9f
 
             val call = dialog.findViewById<LinearLayout>(R.id.constraintLayout_call_spinning_mills_in_india)
+            val callText = dialog.findViewById<TextView>(R.id.textView_call_spinning_mills_in_india_dialog)
+            callText.text = "Call the ${posts[pos].nameOnly}"
+
+            val mail = dialog.findViewById<LinearLayout>(R.id.constraintLayout_mail_spinning_mills_in_india)
+            val mailText = dialog.findViewById<TextView>(R.id.textView_mail_spinning_mills_in_india_dialog)
+            mailText.text = "Email the ${posts[pos].nameOnly}"
+
             dialog.show()
         }
 

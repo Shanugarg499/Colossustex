@@ -11,5 +11,6 @@ data class post (
     var date:String? = "",
     var time:String? = "",
     var type: String? = "",
-    var phone: String = ""
+    var phone: String = "",
+    val nameOnly: String = ""
 )
