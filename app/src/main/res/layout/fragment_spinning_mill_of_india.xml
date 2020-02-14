@@ -288,8 +288,8 @@
             android:id="@+id/constraintLayout_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -338,6 +338,16 @@
 
 
     </RelativeLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        -->
+<!--        android:weightSum="3">-->
+
+
+<!--    </LinearLayout>-->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
