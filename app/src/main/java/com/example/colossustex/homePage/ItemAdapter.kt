@@ -1,5 +1,6 @@
 package com.example.colossustex.homePage
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
+import com.example.colossustex.SG.Textile_News
+import com.example.colossustex.SG.yarn_offers
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.smarteist.autoimageslider.DefaultSliderView
@@ -37,6 +40,8 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
         holder.constraintLayout.setOnClickListener {
             when (position) {
                 0 -> holder.constraintLayout.findNavController().navigate(HomePageDirections.actionHomePageToSpinningMillOfIndia())
+                4-> it.context.startActivity(Intent(it.context, yarn_offers::class.java))
+                7 -> it.context.startActivity(Intent(it.context, Textile_News::class.java))
                 else -> Toast.makeText(it.context, model.description, Toast.LENGTH_SHORT).show()
             }
         }

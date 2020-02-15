@@ -36,7 +36,7 @@ class SpinningMillOfIndia : Fragment() {
         var lay = inflater.inflate(R.layout.fragment_spinning_mill_of_india, container, false)
         val toolbar =
             lay.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_spinning_mills_in_india)
-        val upButton = lay.findViewById<ImageView>(R.id.upButtonSpinningMillsOfIndia)
+        val upButton = lay.findViewById<ImageView>(R.id.back)
         val cotton = lay.findViewById<TextView>(R.id.textView_cotton)
         val synthetic = lay.findViewById<TextView>(R.id.textView_Synthetic)
         val viscose = lay.findViewById<TextView>(R.id.textView_viscose)
