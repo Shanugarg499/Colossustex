@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SG.Textile_News"></activity>
+        <activity android:name=".SG.yarn_requirements"/>
         <activity
             android:name=".SG.yarn_offers"
             android:parentActivityName=".MainActivity" />

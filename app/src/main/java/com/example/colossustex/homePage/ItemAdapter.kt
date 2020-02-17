@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.colossustex.R
 import com.example.colossustex.SG.Textile_News
 import com.example.colossustex.SG.yarn_offers
+import com.example.colossustex.SG.yarn_requirements
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.smarteist.autoimageslider.DefaultSliderView
@@ -36,11 +37,18 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
         holder.description.text = model.description
         holder.heading.text = model.heading
         Picasso.get().load(model.image).into(holder.image)
+     //   val itemList : ArrayList<String> = {"Cotton", "Synthetic", "Viscose", "Texturised", "Fancy"}
 
         holder.constraintLayout.setOnClickListener {
             when (position) {
                 0 -> holder.constraintLayout.findNavController().navigate(HomePageDirections.actionHomePageToSpinningMillOfIndia())
                 4-> it.context.startActivity(Intent(it.context, yarn_offers::class.java))
+//                5 -> (AlertDialog.Builder(it.context).setSingleChoiceItems(itemList, -1){dialog, which->
+//                    Toast.makeText(it.context, itemList[which], Toast.LENGTH_SHORT).show()
+//                }
+//                val alertDialog = builder.create()
+//                alertDialog.show())
+                6 -> it.context.startActivity(Intent(it.context, yarn_requirements::class.java))
                 7 -> it.context.startActivity(Intent(it.context, Textile_News::class.java))
                 else -> Toast.makeText(it.context, model.description, Toast.LENGTH_SHORT).show()
             }
