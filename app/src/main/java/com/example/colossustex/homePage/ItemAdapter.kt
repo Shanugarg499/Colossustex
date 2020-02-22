@@ -1,5 +1,6 @@
 package com.example.colossustex.homePage
 
+import android.app.Dialog
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -43,6 +44,23 @@ class ItemAdapter(options: FirebaseRecyclerOptions<Item>) :
             when (position) {
                 0 -> holder.constraintLayout.findNavController().navigate(HomePageDirections.actionHomePageToSpinningMillOfIndia())
                 4-> it.context.startActivity(Intent(it.context, yarn_offers::class.java))
+                5-> {
+                    var dialog = Dialog(it.context)
+                    dialog.setContentView(R.layout.buy_yarn_offers_dialog1)
+                    val cotton = dialog.findViewById<TextView>(R.id.dialog_cotton)
+                    val synthetic = dialog.findViewById<TextView>(R.id.dialog_synthetic)
+                    cotton.setOnClickListener {
+                        //start an activity cotton
+                        it.context.startActivity(Intent(it.context, yarn_offers::class.java))
+
+                    }
+                    synthetic.setOnClickListener {
+                        //start synthic activity
+                        it.context.startActivity(Intent(it.context, yarn_offers::class.java))
+
+                    }
+                    dialog.show()
+                }
 //                5 -> (AlertDialog.Builder(it.context).setSingleChoiceItems(itemList, -1){dialog, which->
 //                    Toast.makeText(it.context, itemList[which], Toast.LENGTH_SHORT).show()
 //                }
